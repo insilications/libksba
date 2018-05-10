@@ -4,7 +4,7 @@
 #
 Name     : libksba
 Version  : 1.3.5
-Release  : 11
+Release  : 12
 URL      : ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.3.5.tar.bz2
 Source0  : ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.3.5.tar.bz2
 Summary  : No detailed summary available
