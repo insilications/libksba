@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x249B39D24F25E3B6
 #
 Name     : libksba
-Version  : 1.3.5
-Release  : 14
-URL      : https://gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2
-Source0  : https://gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2
-Source1 : https://gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2.sig
-Summary  : No detailed summary available
+Version  : 1.4.0
+Release  : 15
+URL      : https://gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2
+Source0  : https://gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2
+Source1  : https://gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2.sig
+Summary  : X.509 and CMS support library
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: libksba-bin = %{version}-%{release}
@@ -77,19 +77,19 @@ license components for the libksba package.
 
 
 %prep
-%setup -q -n libksba-1.3.5
-cd %{_builddir}/libksba-1.3.5
+%setup -q -n libksba-1.4.0
+cd %{_builddir}/libksba-1.4.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573789789
+export SOURCE_DATE_EPOCH=1594669969
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -102,12 +102,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1573789789
+export SOURCE_DATE_EPOCH=1594669969
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksba
-cp %{_builddir}/libksba-1.3.5/COPYING.GPLv2 %{buildroot}/usr/share/package-licenses/libksba/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/libksba-1.3.5/COPYING.GPLv3 %{buildroot}/usr/share/package-licenses/libksba/e31db874e5b375f0592b02e3e450c9e94086e661
-cp %{_builddir}/libksba-1.3.5/COPYING.LGPLv3 %{buildroot}/usr/share/package-licenses/libksba/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/libksba-1.4.0/COPYING.GPLv2 %{buildroot}/usr/share/package-licenses/libksba/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/libksba-1.4.0/COPYING.GPLv3 %{buildroot}/usr/share/package-licenses/libksba/e31db874e5b375f0592b02e3e450c9e94086e661
+cp %{_builddir}/libksba-1.4.0/COPYING.LGPLv3 %{buildroot}/usr/share/package-licenses/libksba/f45ee1c765646813b442ca58de72e20a64a7ddba
 %make_install
 
 %files
@@ -121,6 +121,7 @@ cp %{_builddir}/libksba-1.3.5/COPYING.LGPLv3 %{buildroot}/usr/share/package-lice
 %defattr(-,root,root,-)
 /usr/include/ksba.h
 /usr/lib64/libksba.so
+/usr/lib64/pkgconfig/ksba.pc
 /usr/share/aclocal/*.m4
 
 %files info
@@ -130,7 +131,7 @@ cp %{_builddir}/libksba-1.3.5/COPYING.LGPLv3 %{buildroot}/usr/share/package-lice
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libksba.so.8
-/usr/lib64/libksba.so.8.11.6
+/usr/lib64/libksba.so.8.12.0
 
 %files license
 %defattr(0644,root,root,0755)
