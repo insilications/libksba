@@ -1,5 +1,6 @@
 PKG_NAME := libksba
-URL = https://gnupg.org/ftp/gcrypt/libksba/libksba-1.6.0.tar.bz2
+URL = https://dev.gnupg.org/source/libksba.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common
