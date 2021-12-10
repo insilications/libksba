@@ -4,3 +4,4 @@ libgpg-error-dev
 libgpg-error-extras
 bison
 valgrind
+texinfo
